@@ -1,0 +1,130 @@
+:root {
+  --blue-1: #bfe9ff;
+  --blue-2: #5aa9e6;
+  --blue-3: #0476d0;
+  --blue-4: #024a86;
+  --green: #23d18b;
+  --danger: #ff5d73;
+  --gold: #ffd166;
+  --glass: rgba(255,255,255,0.15);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #fff;
+  background: linear-gradient(180deg, var(--blue-1), var(--blue-2) 30%, var(--blue-3));
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(90deg, rgba(2,74,134,0.65), rgba(4,118,208,0.4));
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.topbar h1 { margin: 0 12px 0 0; font-size: 20px; }
+
+.hud {
+  display: flex; gap: 16px; align-items: center; flex: 1; min-width: 260px;
+}
+.hud div { background: var(--glass); padding: 6px 10px; border-radius: 8px; }
+
+.actions { display: flex; gap: 8px; }
+.actions button {
+  background: var(--glass);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.actions button:disabled { opacity: 0.55; cursor: not-allowed; }
+.actions button:hover:not(:disabled) { background: rgba(255,255,255,0.25); }
+
+.stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+}
+#game {
+  width: min(96vw, 900px);
+  height: auto;
+  aspect-ratio: 900 / 520;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(2,74,134,0.35);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.25), transparent 50%) ,
+    linear-gradient(180deg, rgba(91,196,255,0.3), rgba(0,0,0,0.0) 40%),
+    linear-gradient(180deg, #0578d3 0%, #045fba 55%, #034a97 100%);
+}
+
+/* burbujas */
+@keyframes rise {
+  0% { transform: translateY(10px) scale(0.8); opacity: 0.0; }
+  30% { opacity: 0.5; }
+  100% { transform: translateY(-100%) scale(1.2); opacity: 0; }
+}
+.stage::after, .stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.15) 0 8px, transparent 9px) 0 0 / 120px 120px,
+    radial-gradient(circle at 80% 90%, rgba(255,255,255,0.12) 0 6px, transparent 7px) 0 0 / 160px 160px;
+  animation: rise 12s linear infinite;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: rgba(0,0,0,0.35);
+}
+.overlay.hidden { display: none; }
+.overlay .panel {
+  background: rgba(10, 30, 60, 0.9);
+  padding: 18px 16px; width: min(90vw, 520px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+}
+.overlay .panel h2 { margin-top: 0; }
+.overlay .overlay-actions { display: flex; justify-content: flex-end; margin-top: 12px; }
+.overlay .overlay-actions button { padding: 10px 14px; border-radius: 8px; }
+
+.modal {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  background: rgba(0,0,0,0.45);
+}
+.modal.hidden { display: none; }
+.modal-content {
+  background: rgba(10, 30, 60, 0.95);
+  padding: 16px; width: min(92vw, 540px); border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+#ranking-list { padding-left: 22px; }
+.footer { position: fixed; bottom: 8px; left: 12px; opacity: 0.8; }
+
+#acciones {
+  margin-top: 20px;
+}
+
+#acciones button {
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #006699;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#acciones button:hover {
+  background-color: #004466;
+}

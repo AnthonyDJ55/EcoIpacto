@@ -1,0 +1,279 @@
+body {
+  margin: 0; padding: 0;
+  font-family: 'Segoe UI', Verdana, Geneva, Tahoma, sans-serif;
+  min-height: 100vh;
+  color: #173b1a;
+  /* Fondo degradado + imagen visible */
+  background:
+    linear-gradient(135deg, #e0ffe570 0%, #b3f9e788 100%),
+    url('../../img/bosque_suave.jpg') center/cover no-repeat fixed;
+  background-blend-mode: lighten;
+}
+
+/* DASHBOARD HEADER Y USER INFO */
+.dashboard-header {
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 2px 14px #1fa76d12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px 8px 32px;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.avatar-usuario {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #23e371;
+  box-shadow: 0 2px 8px #23e37155;
+}
+.nombre-usuario {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.puntos-badge {
+  background: linear-gradient(90deg,#23e371 60%, #ffe066 100%);
+  color: #173b1a;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 3px 14px;
+  font-size: 1.08em;
+  display: inline-block;
+  margin-top: 2px;
+  box-shadow: 0 1px 9px #23e37122;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-perfil, .btn-cerrar {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #23e371, #ffe066);
+  color: #173b1a;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background .18s, box-shadow .18s, color .18s;
+  box-shadow: 0 1px 8px #44e47d30;
+  text-decoration: none;
+}
+.btn-perfil:hover, .btn-cerrar:hover {
+  background: linear-gradient(90deg, #ffe066, #23e371);
+  color: #08783e;
+}
+.form-cerrar {
+  display: inline;
+  margin: 0;
+}
+
+/* BANNER DE BIENVENIDA */
+.welcome-banner {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 35px;
+  background: rgba(255,255,255,0.72);
+  border-radius: 22px;
+  padding: 18px 8px;
+  box-shadow: 0 2px 14px #1fa76d22;
+}
+.welcome-banner h1 {
+  font-size: 2.1em;
+  font-weight: 800;
+  color: #18763c;
+  margin-bottom: 10px;
+}
+.welcome-banner .eco {
+  color: #23e371;
+  font-weight: 900;
+  text-shadow: 0 1px 10px #23e37133;
+}
+
+/* GRID DE JUEGOS */
+#juegos {
+  padding: 0 10vw 45px 10vw;
+}
+#juegos h2 {
+  margin-bottom: 24px;
+  font-size: 1.5em;
+  color: #1fa76d;
+  text-shadow: 0 2px 8px #23e37122;
+}
+.juegos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 22px;
+  background: none;
+}
+
+/* CARD DE JUEGO */
+.juego-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255,255,255,0.88);
+  border-radius: 16px;
+  box-shadow: 0 3px 22px #23e37122, 0 1.5px 6px #1fa76d11;
+  text-decoration: none;
+  color: #173b1a;
+  transition: transform .17s, box-shadow .17s, background .18s;
+  padding: 22px 8px 18px 8px;
+  border: 2.5px solid transparent;
+  min-height: 150px;
+  position: relative;
+}
+.juego-card:hover {
+  transform: translateY(-7px) scale(1.03);
+  box-shadow: 0 8px 40px #23e37177;
+  border-color: #23e371;
+  background: rgba(223, 247, 235, 0.93);
+}
+.icono-juego {
+  font-size: 2.1em;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 3px 8px #23e37155);
+}
+.juego-card strong {
+  font-size: 1.09em;
+  color: #18763c;
+  margin-bottom: 2px;
+}
+.desc-juego {
+  color: #2c6c47;
+  font-size: 0.96em;
+  margin-top: 2px;
+  opacity: 0.88;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  color: #18763c;
+  padding: 20px 0 15px 0;
+  font-weight: 500;
+  font-size: 1.13em;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin-top: 36px;
+  box-shadow: 0 -2px 12px #23e37122;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  #juegos { padding: 0 3vw 40px 3vw;}
+}
+@media (max-width: 650px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 10px 8px 10px;
+    gap: 14px;
+  }
+  .welcome-banner { margin-top: 18px; }
+  #juegos { padding: 0 2vw 30px 2vw;}
+}
+@media (max-width: 480px) {
+  .juegos-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .dashboard-header { padding: 8px 2vw 8px 2vw;}
+  .user-info { gap: 10px; }
+  .avatar-usuario { width: 48px; height: 48px; }
+  .welcome-banner h1 { font-size: 1.18em; }
+}
+
+.videos-eco {
+  background: #e9fbe7;
+  padding: 30px 20px;
+  border-top: 2px solid #a5d6a7;
+  text-align: center;
+}
+
+.videos-eco h2 {
+  color: #2e7d32;
+  margin-bottom: 12px;
+}
+
+.video-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin-top: 20px;
+}
+
+.video-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.badge-puntos {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: bold;
+  background: #fff8e1;
+  border: 1px solid #ffecb3;
+  color: goldenrod;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Estilos para el Modo Oscuro */
+/* Estilos para el Modo Oscuro manteniendo el fondo */
+/* Estilos para el Modo Oscuro mejorado */
+body.dark-mode {
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%),
+        url('../../img/bosque_suave.jpg') center/cover no-repeat fixed !important;
+    color: #e0e0e0;
+    background-blend-mode: multiply;
+}
+
+.dark-mode .dashboard-header, 
+.dark-mode .welcome-banner, 
+.dark-mode footer {
+    background: rgba(25, 25, 25, 0.9) !important;
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Tarjetas de juego con un ligero resplandor verde */
+.dark-mode .juego-card {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid #23e37155; /* Borde verde sutil */
+    color: #ffffff;
+}
+
+.dark-mode .juego-card:hover {
+    box-shadow: 0 0 20px rgba(35, 227, 113, 0.3); /* Brillo verde al pasar el mouse */
+    background: rgba(40, 40, 40, 0.95);
+}
+
+.dark-mode .nombre-usuario, 
+.dark-mode .welcome-banner h1, 
+.dark-mode .eco {
+    color: #23e371;
+    text-shadow: 0 0 10px rgba(35, 227, 113, 0.2);
+}
+
+/* Ajuste para que los textos descriptivos se lean bien */
+.dark-mode .desc-juego {
+    color: #a5d6a7;
+}

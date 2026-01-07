@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  /* === FONDO PERSONALIZABLE ===
+     Cambia la ruta de la imagen de fondo aquí (usa imágenes de tu directorio)
+     Ejemplo: background: url('img/mi-fondo-nature.jpg') no-repeat center center fixed;
+  */
+  background: url('img/bosque_suave.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.bg-selector {
+  max-width: 520px;
+  margin: 24px auto 0 auto;
+  padding: 1.2em 2em;
+  background: #e0f7fae8;
+  border-radius: 1.2em;
+  box-shadow: 0 2px 16px #1de9b633;
+  text-align: center;
+  border-left: 6px solid #64b5f6;
+}
+.bg-selector input[type="file"] {
+  margin: 0.6em 0 0.5em 0;
+}
+.bg-selector button {
+  background: #ff7043;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 0.5em 1.5em;
+  font-size: 1em;
+  margin-top: 0.5em;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 2px 8px #e573731a;
+  transition: background 0.18s;
+}
+.bg-selector button:hover {
+  background: #bf360c;
+}
+
+.container {
+  max-width: 520px;
+  margin: 20px auto 0 auto;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 2em;
+  box-shadow: 0 8px 32px 0 rgba(44, 139, 97, 0.19), 0 1.5px 3px 0 rgba(44, 139, 97, 0.12);
+  padding: 2.5em 2.2em 2.5em 2.2em;
+  backdrop-filter: blur(1px);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+  border-bottom: 2px dashed #b2dfdb;
+  padding-bottom: 1em;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.2em;
+  color: #2e7d32;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-shadow: 0 2px 12px #81c78453;
+}
+
+.score-card {
+  background: linear-gradient(90deg, #a5d6a7 60%, #64b5f6 100%);
+  color: #1b5e20;
+  border-radius: 12px;
+  padding: 0.6em 1.6em 0.6em 1.2em;
+  font-size: 1.3em;
+  font-weight: bold;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  box-shadow: 0 2px 12px #388e3c22;
+  border: 2px solid #e0f2f1;
+}
+
+.card {
+  background: rgba(232, 245, 233, 0.95);
+  padding: 1.2em 1.1em 1.5em 1.1em;
+  border-radius: 20px;
+  margin-bottom: 1.5em;
+  box-shadow: 0 2px 18px #26a69a20;
+  border-left: 7px solid #81c784;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 24px #2e7d3240;
+}
+
+.areas, .semillas {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.4em;
+  gap: 1.2em;
+  flex-wrap: wrap;
+}
+
+.area-btn, .semilla-btn {
+  background: linear-gradient(140deg, #ffffff 60%, #f1f8e9 100%);
+  border: 2.5px solid #b2dfdb;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: 
+    transform 0.18s cubic-bezier(.2,.7,.5,1.2),
+    border-color 0.17s,
+    box-shadow 0.18s;
+  padding: 0.6em 0.7em;
+  text-align: center;
+  min-width: 110px;
+  min-height: 100px;
+  font-size: 1em;
+  position: relative;
+  outline: none;
+  box-shadow: 0 2px 7px #388e3c11;
+  font-weight: 600;
+  color: #2e7d32;
+  overflow: hidden;
+}
+
+.area-btn.selected, .semilla-btn.selected {
+  border-color: #388e3c;
+  background: linear-gradient(135deg, #b9f6ca 60%, #e3f2fd 100%);
+  transform: scale(1.09);
+  box-shadow: 0 6px 28px #388e3c1c;
+  color: #15672b;
+}
+
+.area-btn img, .semilla-btn img {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 0.5em;
+  filter: drop-shadow(0 2px 8px #388e3c1a);
+  transition: filter 0.18s;
+}
+
+.area-btn.selected img, .semilla-btn.selected img {
+  filter: drop-shadow(0 4px 16px #2e7d3260) brightness(1.15);
+}
+
+.semilla-btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: grayscale(0.5) blur(1px);
+}
+
+.semilla-btn:hover:not(:disabled),
+.area-btn:hover:not(.selected) {
+  border-color: #64b5f6;
+  transform: scale(1.06) rotate(-2deg);
+  z-index: 2;
+}
+
+.finalizar-btn {
+  background: linear-gradient(90deg, #388e3c 80%, #43a047 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.22em;
+  padding: 0.85em 2.7em;
+  margin-top: 1.2em;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 2px 8px #388e3c24;
+  transition: background 0.16s, transform 0.12s;
+}
+
+.finalizar-btn:hover, .finalizar-btn:focus {
+  background: linear-gradient(90deg, #1b5e20 80%, #388e3c 100%);
+  transform: scale(1.05);
+}
+
+#historial-plantas {
+  margin-top: 20px;
+  background: linear-gradient(120deg, #e0f2f1 60%, #c8e6c9 100%);
+  padding: 18px;
+  border-radius: 13px;
+  border-left: 5px solid #64b5f6;
+  box-shadow: 0 2px 8px #26a69a22;
+}
+
+#historial-plantas h3 {
+  margin-top: 0;
+  color: #0277bd;
+  font-size: 1.15em;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+#historial-plantas ul {
+  margin: 0; 
+  padding: 0 0 0 1.2em;
+  font-size: 1em;
+  color: #2e7d32;
+}
+
+#historial-plantas li {
+  margin-bottom: 0.35em;
+  list-style-type: "🌱 ";
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.plantando {
+  animation: plantar 0.7s;
+}
+
+@keyframes plantar {
+  0% { transform: scale(1) rotate(0deg);}
+  25% { transform: scale(1.17) rotate(-6deg);}
+  60% { transform: scale(1.07) rotate(2deg);}
+  100% { transform: scale(1) rotate(0deg);}
+}
+
+.logro-popup {
+  position: fixed;
+  top: 38px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(90deg, #fffde7 60%, #b2ff59 100%);
+  color: #355e21;
+  border: 2px solid #b2ff59;
+  border-radius: 16px;
+  padding: 18px 40px;
+  z-index: 1000;
+  font-size: 1.35em;
+  text-align: center;
+  box-shadow: 0 4px 28px #8bc34a88;
+  font-weight: 700;
+  transition: opacity 0.3s;
+  letter-spacing: 0.2px;
+  opacity: 0.99;
+  animation: logroFadeIn 0.5s;
+}
+
+@keyframes logroFadeIn {
+  from { opacity: 0; top: 0;}
+  to   { opacity: 0.99; top: 38px;}
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #e0f2f1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #a7ffeb;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .container, .bg-selector {
+    padding: 1.3em 0.3em;
+    max-width: 98vw;
+  }
+  .areas, .semillas {
+    flex-direction: column;
+    gap: 1.2em;
+  }
+  .area-btn, .semilla-btn {
+    min-width: unset;
+    width: 87vw;
+    margin: 0 auto;
+  }
+}
+
+.guardar-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.botones-reforestacion {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-reforestacion {
+  background: linear-gradient(90deg, #388e3c 80%, #43a047 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1em;
+  padding: 0.8em 2em;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 2px 8px #388e3c24;
+  transition: background 0.16s, transform 0.12s;
+}
+
+.btn-reforestacion:hover {
+  background: linear-gradient(90deg, #1b5e20 80%, #388e3c 100%);
+  transform: scale(1.05);
+}
+

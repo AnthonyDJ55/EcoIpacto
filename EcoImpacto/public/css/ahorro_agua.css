@@ -1,0 +1,153 @@
+/* === Fondo general === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('img/bosque_suave.jpg'); /* reemplaza con tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* === Contenedor principal === */
+.container {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* === Título === */
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #aefcff;
+  text-shadow: 0 0 10px #00e5ff;
+}
+
+/* === Barra de agua === */
+.agua-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  font-size: 1.2em;
+}
+
+progress {
+  width: 250px;
+  height: 24px;
+  appearance: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 8px #00e5ff;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #004d40;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #00e5ff, #00bcd4);
+}
+
+/* === Tarjetas de misión === */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #00bcd4;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.card h2 {
+  color: #aefcff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.1em;
+}
+
+/* === Botones de opciones === */
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opcion-btn {
+  background: linear-gradient(90deg, #00bcd4, #0097a7);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+  transition: transform 0.2s, background 0.3s;
+}
+
+.opcion-btn:hover {
+  background: linear-gradient(90deg, #0097a7, #00acc1);
+  transform: scale(1.05);
+}
+
+/* === Botones finales === */
+.botones-final {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.btn-agua {
+  background: linear-gradient(90deg, #00796b, #004d40);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-agua:hover {
+  background: linear-gradient(90deg, #004d40, #00796b);
+  transform: scale(1.05);
+}
+
+/* === Responsive === */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .agua-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  progress {
+    width: 100%;
+  }
+
+  .botones-final {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,164 @@
+/* ====== Variables de color ====== */
+:root {
+    --color-principal: #4facfe;
+    --color-secundario: #00f2fe;
+    --color-exito: #28a745;
+    --color-peligro: #dc3545;
+    --color-texto: #333;
+    --color-fondo: #f9f9f9;
+}
+
+/* ====== Fondo general ====== */
+body {
+    background: linear-gradient(135deg, var(--color-principal), var(--color-secundario));
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--color-texto);
+}
+
+/* ====== Botones ====== */
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-crear {
+    background: linear-gradient(45deg, var(--color-exito), #5cd65c);
+    color: white;
+    border: none;
+}
+.btn-crear:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+.btn-eliminar {
+    background: linear-gradient(45deg, var(--color-peligro), #ff5c5c);
+    color: white;
+    border: none;
+}
+.btn-eliminar:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+/* ====== Contenedor de formularios ====== */
+.form-contenedor {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-contenedor h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-principal);
+}
+
+.form-contenedor label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-contenedor input[type="text"],
+.form-contenedor textarea,
+.form-contenedor input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+}
+
+.form-contenedor input:focus,
+.form-contenedor textarea:focus {
+    border-color: var(--color-principal);
+    outline: none;
+}
+
+/* ====== Álbumes ====== */
+.album-card {
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.album-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.album-card h4 {
+    margin: 0 0 5px;
+    color: var(--color-principal);
+}
+
+.album-card p {
+    margin: 0 0 10px;
+    color: #666;
+}
+
+/* ====== Galería ====== */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.galeria img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.galeria img:hover {
+    transform: scale(1.05);
+    border-color: var(--color-principal);
+}
+
+/* ====== Confirmación de eliminación ====== */
+.confirmacion {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    background: #fff3f3;
+    border: 1px solid #f5c2c7;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.confirmacion h2 {
+    color: #b02a37;
+}
+
+.confirmacion p {
+    margin: 15px 0;
+    color: #555;
+}
+
+/* ====== Animaciones ====== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
